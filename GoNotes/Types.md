@@ -1,10 +1,10 @@
 ### Data Types
 
-| Category | Usage                      | Example Value              | Example Use                                          |
-| -------- | -------------------------- | -------------------------- | ---------------------------------------------------- |
-| int      | Integers, Counting Numbers | 11, 8131, -322, 5000       | Visitors on a website, items in stock                |
-| float    | Decimals                   | -0.073, 41.35, -8.2, 2.718 | Averages, measurement                                |
-| complex  | Imaginary numbers          | 3i, 7 + 2i, -14 - 0.5i     | 2-D coordinates, calculations involving square roots |
+| Category | Usage                                    | Example Value              | Example Use                                          |
+| -------- | ---------------------------------------- | -------------------------- | ---------------------------------------------------- |
+| int      | Integers, Counting Numbers               | 11, 8131, -322, 5000       | Visitors on a website, items in stock                |
+| float    | Decimals (can be `float32` or `float64`) | -0.073, 41.35, -8.2, 2.718 | Averages, measurement                                |
+| complex  | Imaginary numbers                        | 3i, 7 + 2i, -14 - 0.5i     | 2-D coordinates, calculations involving square roots |
 ### Numeric Types
 | Type   | Memory Usage in Bits | Min. Value                 | Max. Value                 |
 | ------ | -------------------- | -------------------------- | -------------------------- |

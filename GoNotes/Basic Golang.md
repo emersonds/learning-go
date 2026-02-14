@@ -57,4 +57,16 @@ Go will have a compiler error if a variable is defined but not used. File\:line\
 ```go
 daysOnVacation := 10
 ```
-Floats created this way are `float64` while integers are either `int32` or `int64`.
+Floats created this way are `float64` while integers are either `int32` or `int64` depending on if the computer architecture is running on 32-bit or 64-bit.
+
+Go supports multiple variable declaration
+```go
+var part1, part2 string
+part1 = "To be..."
+part2 = "Not to be..."
+
+// Using short declaration
+quote, fact := "Bears, Beets, Battlestar Galactica", true
+```
+
+`string` types should be assigned with double quotes (`""`). Single quotes (`''`) are used exclusively for defining a single character (also called **a rune**): `'a'`.
