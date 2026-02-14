@@ -2,7 +2,7 @@
 
 A **package declaration** tells the Go compiler which package this file belongs to, where `package main` will be compiled into an executable on `go build main`.
 
-An **import statement** allows the use of code from other packages: `import "fmt"`
+An **import statement** allows the use of code from other packages: `import "fmt"`. Go's compiler will throw an error if a package is imported but unused.
 
 `func` declares a function:
 ```go
@@ -42,3 +42,19 @@ o'')}____//
  `_/      )
  (_(_/-(_/
 ```
+
+### Variables
+```go
+var lengthOfSong uint16
+var isMusicOver bool
+var songRating float32 = 0.52c
+```
+
+Go will have a compiler error if a variable is defined but not used. File\:line\/column
+`./main.go:4:7: lengthOfSong declared and not used`
+
+**Short Declaration Operator** `:=` allows variable declaration without explicitly stating its type. This infers the type of a variable.
+```go
+daysOnVacation := 10
+```
+Floats created this way are `float64` while integers are either `int32` or `int64`.
