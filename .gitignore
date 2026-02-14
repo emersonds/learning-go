@@ -30,3 +30,13 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# Obsidian
+#
+# Ignores workspace files that cause merge conflicts and plugins data
+
+GoNotes/.obsidian/workspace.json
+GoNotes/.obsidian/themes
+GoNotes/.obsidian/appearance.json
+GoNotes/.obsidian/plugins
+GoNotes/.obsidian/snippets
