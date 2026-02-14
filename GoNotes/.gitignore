@@ -4,8 +4,8 @@
 #
 # Ignores workspace files that cause merge conflicts and plugins data
 
-*/.obsidian/workspace.json
-*/.obsidian/themes
-*/.obsidian/appearance.json
-*/.obsidian/plugins
-*/.obsidian/snippets
+GoNotes/.obsidian/workspace.json
+GoNotes/.obsidian/themes
+GoNotes/.obsidian/appearance.json
+GoNotes/.obsidian/plugins
+GoNotes/.obsidian/snippets
