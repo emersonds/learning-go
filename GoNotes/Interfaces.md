@@ -22,13 +22,27 @@ func (s Square) area() int {
 // Now we can access the area() method from the Geometry interface in a separate function, getArea()
 func getArea(shape any) (int, error) {
 	// _ is a lambda expression for a temporary shape type variable. Note the Geometry interface attached to shape, allowing us to call the area() method from the interface.
-	// No clue was "ok" is yet
+	// "ok" is a variable that determines if the shape has implemented the interface correctly - in other words if "_" is a valid shape.
     _, ok := shape.(Geometry); ok {
-      return shape.area(), nil
+	  return shape.area(), nil // ok is nil here because the shape is valid
     } else {
-      return 0, errors.New("unknown type")
+      return 0, errors.New("unknown type") // shape does not implement the interface thus is an unknown type, and "ok" becomes an error message.
     }
 }
 
 ```
 [Go by Example: Interfaces](https://gobyexample.com/interfaces) seems to break these down better.
+
+[Video Explaining Interfaces](https://www.youtube.com/watch?v=SX1gT5A9H-U) by Flo Woelki
+```
+(Comment from @minhleuc2346 on the above video)
+In Go (Golang), there are no "classes" like in Python, Java, or C++.
+
+Instead, Go uses:
+- structs: These are used to group data together (like fields or attributes).
+- methods: These are functions that are attached to a struct. They can work with the data inside the struct.
+
+Go also has interfaces, which are just a list of method names. To "implement" an interface, a struct needs to have all the methods listed in that interface.
+
+When you call a method from an interface, you can pass a variable of a struct type — as long as that struct has already implemented the needed methods.
+```
