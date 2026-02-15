@@ -144,3 +144,82 @@ func main() {
   fmt.Println(rand.Intn(100))
 }
 ```
+
+### Functions
+Works the same as C-like and other programming languages. Return type follows the function name rather than preceding it.
+```go
+func getLengthOfCentralPark() int32 {
+  var lengthInBlocks int32
+  lengthInBlocks = 51
+  return lengthInBlocks
+}
+
+func main () {
+	length := getLengthOfCentralPark()
+}
+```
+
+Just like declaring variables, `var x int32`, function parameters have the type after the variable declaration. With multiple parameters of the same type, the type declaration can be at the end of the parameter list.
+```go
+// This function takes two int32 parameters and returns an int32
+func multiplier(x, y int32) int32 {
+  return x * y
+}
+```
+
+Functions can return multiple values. See the following example where `func GPA()` returns a string and a float32:
+```go
+// Calculates GPA and returns two values, the letter grade (string) and the average grade (float32)
+func GPA(midtermGrade float32, finalGrade float32) (string, float32) {
+  averageGrade := (midtermGrade + finalGrade) / 2
+  var gradeLetter string
+  if averageGrade > 90 {
+    gradeLetter = "A"
+  } else if averageGrade > 80 {
+    gradeLetter = "B"
+  } else if averageGrade > 70 {
+    gradeLetter = "C"
+  } else if averageGrade > 60 {
+    gradeLetter = "D"
+  } else {
+    gradeLetter = "F"
+  }
+
+  return gradeLetter, averageGrade 
+}
+
+func main() {
+  var myMidterm, myFinal float32
+  myMidterm = 89.4
+  myFinal = 74.9
+  var myAverage float32
+  var myGrade string
+  // Note how GPA() returns two values
+  // Use two variables to assign each value
+  myGrade, myAverage = GPA(myMidterm, myFinal)
+  fmt.Println(myAverage, myGrade) // Prints 82.12 B
+}
+```
+
+`defer` keyword can be used to delay a function call to the end of the current scope. `defer` tells Go to run a function at the end of the current function. This is useful for logging, file writing, and other utilities.
+
+In this example, `defer` is called right at the beginning of the function, but does not print anything until the function ends (in this case, a value is returned).
+```go
+func calculateTaxes(revenue, deductions, credits float64) float64 {
+  defer fmt.Println("Taxes Calculated!")
+  taxRate := .06143
+  fmt.Println("Calculating Taxes")
+
+  if deductions == 0 || credits == 0 {
+    return revenue * taxRate
+  }
+  
+
+  taxValue := (revenue - (deductions * credits)) * taxRate
+  if taxValue >= 0 {
+    return taxValue
+  } else {
+    return 0
+  }
+}
+```
