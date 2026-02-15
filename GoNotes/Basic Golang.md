@@ -72,3 +72,75 @@ quote, fact := "Bears, Beets, Battlestar Galactica", true
 ```
 
 `string` types should be assigned with double quotes (`""`). Single quotes (`''`) are used exclusively for defining a single character (also called **a rune**): `'a'`.
+
+### Conditionals
+Similar to C#, `if-else` conditionals use curly brackets. `else` has to be preceded by the closing curly bracket from the `if` statement:
+```go
+isTrue := true
+
+if !isTrue {
+	fmt.Print("False")
+} else {
+	fmt.Print("True")
+}
+```
+
+`switch` blocks are useful for checking multiple values at once.
+```go
+switch name {
+	case "Joe":
+		fmt.Println("Mama")
+	case "Billy":
+		fmt.Println("Bob")
+	default:
+		fmt.Println("Nice name")
+}
+```
+
+`if` and `switch` statements support **scoped short declaration statements (`:=`)**. This means we can declare a variable in our conditional statements and check against them.
+```go
+// If statement short declaration
+x := 8
+y := 9
+if product := x * y; product > 60 {
+  fmt.Println(product, "  is greater than 60")
+}
+
+// Switch statement short declaration
+switch season := "summer" ; season {
+case "summer":
+  fmt.Println("Go out and enjoy the sun!")
+}
+```
+However, these variables are only scoped to the `if` or `switch` statement they are declared in.
+```go
+x := 8
+y := 9
+if product := x * y; product > 60 {
+	fmt.Println(product, "is greater than 60")
+}
+
+ // "Undefined" error, product does not exist in this scope!!
+product *= 0.0887
+```
+
+### Random Numbers and Seeding
+Go has a `"math/rand"` library for generating random numbers. Random integers can be generated using `rand.Intn(n)` where a random number is chosen from 0 to `n-1` (Upper bound exclusive).
+
+However, random numbers must be seeded to prevent the same number from being selected every time the function is called.
+
+A common way to do this is by incorporating the `"time"` package, because the current time will always be different, thus always giving us a unique number:
+```go
+package main
+
+import (
+  "fmt"
+  "math/rand"
+  "time"
+)
+
+func main() {
+  rand.Seed(time.Now().UnixNano())  // Difference in time since January 1st, 1970
+  fmt.Println(rand.Intn(100))
+}
+```

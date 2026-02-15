@@ -78,3 +78,5 @@ fmt.Scan(&response)
 
 fmt.Printf("I'm %v.", response) 
 ```
+*Note: `Scan()` does not allow whitespace, such as spaces, in the arguments. It will cut off everything after the first word if there is a space.*
+
