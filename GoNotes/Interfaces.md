@@ -154,10 +154,7 @@ Extension of type assertions that allows us to handle multiple types safely in a
 // v is assigned the result of the type assertion on vehicle
 // Switch statement checks v against each case for each type implementation of Vehicle interface, in this case Car or Bike
 switch v := vehicle.(type) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c81da89 (Notes: Empty interfaces and combining interfaces.)
+
 case Car:
 	fmt.Println("Car model: ", v.model)
 case Bike:
@@ -183,7 +180,6 @@ func processData(data any) {
 		fmt.Println("Integer")
 	case bool:
 		fmt.Println("Boolean")
-<<<<<<< HEAD
 	default:
 		fmt.Println("Unexpected type")
 	}
@@ -258,14 +254,10 @@ type SMSNotifier struct{}
 func (s SMSNotifier) Notify(message string) {
 	fmt.Println("Sending SMS with message:", message)
 }
-```
-=======
 	case Car:
 		fmt.Println("Car model: ", v.model)
 	case Bike:
 		fmt.Println("Bike color: ", v.color)
-=======
->>>>>>> c81da89 (Notes: Empty interfaces and combining interfaces.)
 	default:
 		fmt.Println("Unexpected type")
 	}
@@ -341,4 +333,3 @@ func (s SMSNotifier) Notify(message string) {
 	fmt.Println("Sending SMS with message:", message)
 }
 ```
->>>>>>> bfbda99 (Notes: Type Assertions and Switching)
