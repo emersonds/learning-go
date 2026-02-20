@@ -85,7 +85,7 @@ if !isTrue {
 }
 ```
 
-`switch` blocks are useful for checking multiple values at once.
+`switch` blocks are useful for checking multiple values at once. ***Switch blocks in Go DO NOT REQUIRE A BREAK STATEMENT UNDER EACH CASE***
 ```go
 switch name {
 	case "Joe":

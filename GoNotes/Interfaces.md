@@ -154,6 +154,7 @@ Extension of type assertions that allows us to handle multiple types safely in a
 // v is assigned the result of the type assertion on vehicle
 // Switch statement checks v against each case for each type implementation of Vehicle interface, in this case Car or Bike
 switch v := vehicle.(type) {
+<<<<<<< HEAD
 case Car:
 	fmt.Println("Car model: ", v.model)
 case Bike:
@@ -254,3 +255,13 @@ func (s SMSNotifier) Notify(message string) {
 	fmt.Println("Sending SMS with message:", message)
 }
 ```
+=======
+	case Car:
+		fmt.Println("Car model: ", v.model)
+	case Bike:
+		fmt.Println("Bike color: ", v.color)
+	default:
+		fmt.Println("Unknown vehicle type")
+}
+```
+>>>>>>> bfbda99 (Notes: Type Assertions and Switching)
