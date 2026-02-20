@@ -85,15 +85,15 @@ if !isTrue {
 }
 ```
 
-`switch` blocks are useful for checking multiple values at once. ***Switch blocks in Go DO NOT REQUIRE A BREAK STATEMENT UNDER EACH CASE***
+`switch` blocks are useful for checking multiple values at once. ***Switch blocks in Go DO NOT REQUIRE A BREAK STATEMENT UNDER EACH CASE***. Also make sure cases are inline with `switch`.
 ```go
 switch name {
-	case "Joe":
-		fmt.Println("Mama")
-	case "Billy":
-		fmt.Println("Bob")
-	default:
-		fmt.Println("Nice name")
+case "Joe":
+	fmt.Println("Mama")
+case "Billy":
+	fmt.Println("Bob")
+default:
+	fmt.Println("Nice name")
 }
 ```
 

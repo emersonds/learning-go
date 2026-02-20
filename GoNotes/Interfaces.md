@@ -155,6 +155,9 @@ Extension of type assertions that allows us to handle multiple types safely in a
 // Switch statement checks v against each case for each type implementation of Vehicle interface, in this case Car or Bike
 switch v := vehicle.(type) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c81da89 (Notes: Empty interfaces and combining interfaces.)
 case Car:
 	fmt.Println("Car model: ", v.model)
 case Bike:
@@ -180,6 +183,7 @@ func processData(data any) {
 		fmt.Println("Integer")
 	case bool:
 		fmt.Println("Boolean")
+<<<<<<< HEAD
 	default:
 		fmt.Println("Unexpected type")
 	}
@@ -260,8 +264,81 @@ func (s SMSNotifier) Notify(message string) {
 		fmt.Println("Car model: ", v.model)
 	case Bike:
 		fmt.Println("Bike color: ", v.color)
+=======
+>>>>>>> c81da89 (Notes: Empty interfaces and combining interfaces.)
 	default:
-		fmt.Println("Unknown vehicle type")
+		fmt.Println("Unexpected type")
+	}
+}
+```
+
+Using empty interfaces comes with the risk of losing compile-time type checking, making it harder to ensure type safety. Use type assertions or switches to safely retrieve the underlying type of a value stored in an empty interface.
+
+### Best Practices: Keep Interfaces Small
+Interfaces should be small to keep them simple (KISS), flexible to allow mixing and matching of features, and to be combined into larger interfaces for more complex interfaces.
+```go
+// Creating bigger interfaces with smaller interfaces
+type Reader interface {
+    Read()
+}
+
+type Writer interface {
+    Write()
+}
+
+// A type that implements ReadWriter must satisfy both Reader and Writer interfaces.
+type ReadWriter interface {
+    Reader
+    Writer
+}
+```
+
+Combining interfaces allows for a more modular approach where each type only needs to implement the methods that are relevant to its role. Also allows for keeping parts of a system independent, only interacting with the necessary interfaces required to do their jobs.
+
+### Best Practices: Behavior Over Implementation
+Interfaces are best used to describe what a program should do rather than *how* a program should do it.
+```go
+type Notifier interface {
+	Notify(message string)
+}
+```
+The `Notifier` interface in this case allows for a flexible interface for notification methods. It tells the program *what* to do, notify something, but now *how* to do it. This interface can be implemented by multiple notification methods, such as SMS, email, or push notifications.
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+	var notifier Notifier
+	
+	notifier = EmailNotifier{}
+	notifier.Notify("Hello via Email!")
+	
+	notifier = SMSNotifier{}
+	notifier.Notify("Hello via SMS!")
+}
+
+// Define behavior-focused and abstract interface
+type Notifier interface {
+	Notify(message string)
+}
+
+  
+
+// Implement the interface in different ways
+type EmailNotifier struct{}
+
+// EmailNotifier type implementation of Notifier interface
+func (e EmailNotifier) Notify(message string) {
+	fmt.Println("Sending email with message:", message)
+}
+
+type SMSNotifier struct{}
+
+// SMSNotifier type implementation of Notifier interface
+func (s SMSNotifier) Notify(message string) {
+	fmt.Println("Sending SMS with message:", message)
 }
 ```
 >>>>>>> bfbda99 (Notes: Type Assertions and Switching)
