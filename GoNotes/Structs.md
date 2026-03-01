@@ -40,3 +40,61 @@ fmt.Println(john.age) // Prints 15
 john.age = 16  // "age" field in Student struct instance john changed to 16
 ```
 
+If we want to use many instances of a struct, we can use an array of structs. Contents of a struct array can be accessed and modified, as well as the instance fields for each index.
+```go
+type Point struct {
+	x int
+	y int
+}
+
+// A slice of Point structs
+points := []Point{{1, 1}, {7, 27}, {9, 25}}
+
+// Can also declare an array with existing instances
+a = {1, 1}
+b = {7, 27}
+c = {12, 7}
+d = {9, 25}
+
+points := []Point{a, b, c, d}
+
+fmt.Println(points[0]) // Prints {1, 1}
+
+points[0].x = 2
+points[0].y = 3
+fmt.Println(points[0].x) // Prints 2
+```
+
+Structs can also be nested to make complex groups of fields easier to work with.
+```go
+type Name struct {
+	firstName string
+	lastName string
+}
+
+type Employee struct {
+	name Name  // Nested Name struct will contain firstName and lastName
+	age int
+	title string
+}
+
+carl := Employee{Name{"Carl", "Carlson"}, 32, "Engineer"}
+
+// Nested structs can be accessed by chaining together the field accesses
+// carl(instance).name(nested struct Name).lastName(field from nested Name struct)
+fmt.Println(carl.name.lastName)  // Prints "Carlson"
+```
+
+When nesting structs, a nested struct can also be defined "anonymously".  This allows us to access a field from the name struct without having to chain field accesses. The only downside of this is that we cannot have two structs declared anonymously, because we won't know which field is being accessed. Anonymous fields lead to cleaner code because it is easier to read.
+```go
+type Name struct {...} // see above
+type Employee struct {
+	Name
+	age int
+	title string
+}
+
+carl := Employee{Name{"Carl", "Carlson"}, 32, "Engineer"}
+fmt.Println(carl.firstName)  // Prints "Carl"
+```
+
