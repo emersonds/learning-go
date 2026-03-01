@@ -124,3 +124,23 @@ fmt.Println(books)
 ```
 
 Slices can be used to retain changes to an array when passing arrays to functions. Changes to the slice parameter will be permanent. Modifying a normal array parameter will not create permanent changes. Changes to the array parameter will only be local to the function.
+
+### Maps
+Maps are unordered collections of keys and values, like dictionaries in C#. The following example shows a map declaration where some of the values are known.
+```go
+donuts := map[string]int{
+    "frosted": 10,
+    "chocolate": 15,
+    "jelly": 8,
+}
+fmt.Println(donuts)  // Prints map[chocolate:15 frosted:10 jelly:8]
+```
+
+Maps are useful for any time a piece of data needs to be associated with another, such as employee IDs to employee names.
+
+If values for a map are unknown, the `make()` function can be used to create an empty map.
+```go
+prices := make(map[string]float32) // Declares an empty map with keys of type string and values of type float32
+fmt.Println(prices)  // Prints map[]
+```
+
