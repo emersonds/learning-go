@@ -134,6 +134,9 @@ donuts := map[string]int{
     "jelly": 8,
 }
 fmt.Println(donuts)  // Prints map[chocolate:15 frosted:10 jelly:8]
+
+cheapestDonut := donuts["jelly"]
+fmt.Println(cheapestDonut)  // Prints 8
 ```
 
 Maps are useful for any time a piece of data needs to be associated with another, such as employee IDs to employee names.
@@ -144,3 +147,27 @@ prices := make(map[string]float32) // Declares an empty map with keys of type st
 fmt.Println(prices)  // Prints map[]
 ```
 
+If a key is not in the map, the default value for the value type is returned. We can also use a boolean variable to check that the key exists in the map.
+```go
+customer, status := contacts["billy"] // customer is the map value, status is if the value exists
+
+// Status is used to verify the customer exists in the map
+if status {
+    fmt.Println("We found the customer")
+} else {
+    fmt.Println("No such customer!")
+}
+```
+
+To add a value to the map, we can simply declare a new value to a new key. The `append()` function is not needed here! This value declaration can also be used to change existing values in the map.
+```go
+map[newKey] = newValue
+customers["Samantha"] = 1.25 // Create key "Samantha" with value 1.25
+customers["Samantha"] = 2.25 // Key "Samantha" now has a value of 2.25
+```
+
+Keys can be removed from the map using the `delete()` function. If `delete()` is called on a key that is not in the map, nothing bad happens and the Go compiler will ignore it.
+```go
+delete(yourMap, keyValueToDelete)
+delete(contacts, "Gary")  // Remove key "Gary" from map contacts
+```
