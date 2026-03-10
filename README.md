@@ -6,6 +6,8 @@
 This is a repository for me to document my Go learning journey. Primarily, I will be using this repository for course notes and practice problems.
 Notes were taken from Codecademy's two Go courses, while practice problems are currently being taken from Leetcode.
 
+***All content in this repository is made without the use of AI. Using AI is inconducive to proper learning.***
+
 ## Repo Structure
  - `GoNotes` contains all of my notes in Markdown format. Currently, these notes just include the basics: arrays, structs, interfaces, loops, functions, etc.
 All notes were taken in Obsidian to aid in formatting.
