@@ -2,11 +2,29 @@ package main
 
 import "fmt"
 
+type language string
+
+// phrasebook holds greeting for each supported language
+var phrasebook = map[language]string{
+	"el": "Χαίρετε Κόσμε",
+	"en": "Hello world",
+	"fr": "Bonjour le monde",
+	"he": "שלום עולם",
+	"ur": "ہیلو دنیا",
+	"vi": "Xin chào Thế Giới",
+}
+
 func main() {
-	greeting := greet()
+	greeting := greet("en")
 	fmt.Println(greeting)
 }
 
-func greet() string {
-	return "Hello, people!"
+func greet(l language) string {
+	greeting, ok := phrasebook[l]
+
+	if !ok {
+		return fmt.Sprintf("Invalid language: %q", l)
+	}
+
+	return greeting
 }
