@@ -8,7 +8,7 @@ func Example_main() {
 	// Hello world
 }
 
-func TestGreet_English(t *testing.T) {
+func TestGreet(t *testing.T) {
 	type testCase struct {
 		lang language
 		want string
