@@ -1,11 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"fmt"
+)
 
 type language string
 
 // phrasebook holds greeting for each supported language
 var phrasebook = map[language]string{
+	"de": "Hallo Welt",
 	"el": "Χαίρετε Κόσμε",
 	"en": "Hello world",
 	"fr": "Bonjour le monde",
@@ -15,7 +19,15 @@ var phrasebook = map[language]string{
 }
 
 func main() {
-	greeting := greet("en")
+	var lang string
+
+	flag.StringVar(&lang,
+		"lang",
+		"en",
+		"The required language, e.g. en, fr, ur...")
+	flag.Parse()
+
+	greeting := greet(language(lang))
 	fmt.Println(greeting)
 }
 

@@ -28,6 +28,10 @@ func TestGreet(t *testing.T) {
 			lang: "akk",
 			want: `unsupported language: "akk"`,
 		},
+		"German": {
+			lang: "de",
+			want: "Hallo Welt",
+		},
 		"Greek": {
 			lang: "el",
 			want: "Χαίρετε Κόσμε",
