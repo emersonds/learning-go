@@ -23,7 +23,7 @@ func greet(l language) string {
 	greeting, ok := phrasebook[l]
 
 	if !ok {
-		return fmt.Sprintf("Invalid language: %q", l)
+		return fmt.Sprintf("unsupported language: %q", l)
 	}
 
 	return greeting
