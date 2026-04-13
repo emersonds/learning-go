@@ -7,8 +7,11 @@ import (
 
 func merge(nums1 []int, m int, nums2 []int, n int) []int {
 	for i := m; i < m+n; i++ {
-		// Compiler error if m = 0
-		nums1[i] = nums2[i-n]
+		if m > 0 {
+			nums1[i] = nums2[i-n]
+		} else {
+			nums1[i] = nums2[i]
+		}
 	}
 
 	sort.Ints(nums1)
