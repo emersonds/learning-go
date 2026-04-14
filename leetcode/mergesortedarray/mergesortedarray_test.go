@@ -38,7 +38,7 @@ func TestMerge(t *testing.T) {
 		},
 		"Example 4": {
 			nums1: []int{4,0,0,0,0,0},
-			nums2: []int{1,2,3,4,5,6},
+			nums2: []int{1,2,3,5,6},
 			m: 1,
 			n: 5,
 			want: []int{1,2,3,4,5,6},
